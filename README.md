@@ -6,22 +6,22 @@ Sitemap==========================<br><br>
       -Department<br>
       -Allowances<br>
       -Deductions<br>
-      <br><br>
+      <br>
   Leave<br>
       -New Leave Request<br>
       -Leave Requests<br>
-      <br><br>
+      <br>
   Payroll<br>
       -Allowances<br>
       -Deductions<br>
       -Loans<br>
       -Pay Slip<br>
-      <br><br>
+      <br>
   Reports<br>
       -Attendance<br>
       -Allowances<br>
       -Deductions<br>
       -Loans<br>
       -Payroll<br>
-      <br><br>
+      <br>
   Logout
