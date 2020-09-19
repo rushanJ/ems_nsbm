@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -52,3 +53,19 @@ public class Config {
   
     
 }
+=======
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Been;
+
+/**
+ *
+ * @author rusha
+ */
+public class Config {
+    
+}
+>>>>>>> d1cf4124232cfe7adb6cec43d69d900e7c897fde
