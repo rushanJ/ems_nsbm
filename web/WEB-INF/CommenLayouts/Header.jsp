@@ -34,19 +34,74 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <div class="w3-container">
     <h5>Dashboard</h5>
   </div>
-  <div class="w3-bar-block">
-    <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>  Overview</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Views</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Traffic</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  Geo</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>  Orders</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>  News</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bank fa-fw"></i>  General</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i>  History</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cog fa-fw"></i>  Settings</a><br><br>
+  
+  <div class="w3-sidebar w3-bar-block w3-light-grey w3-card" style="z-index:3;width:300px;">
+  <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+  
+  <a href="#" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-home fa-fw"></i>  Home</a>
+  
+  <button class="w3-button w3-bar-item w3-block " onclick="myAccFunc('demoAcc1')"><i class="fa fa-user fa-fw"></i>  Master Data <i class="fa fa-caret-down"></i></button>
+  <div id="demoAcc1" class="w3-hide w3-white w3-card">
+    <a href="#" class="w3-bar-item w3-button">Employee</a>
+    <a href="#" class="w3-bar-item w3-button">Department</a>
+    <a href="#" class="w3-bar-item w3-button">Allowances</a>
+    <a href="#" class="w3-bar-item w3-button">Deductions</a>
   </div>
+ 
+  <button class="w3-button w3-bar-item w3-block " onclick="myAccFunc('demoAcc2')"><i class="fa fa-plane fa-fw"></i>  Leave <i class="fa fa-caret-down"></i></button>
+  <div id="demoAcc2" class="w3-hide w3-white w3-card">
+    <a href="#" class="w3-bar-item w3-button">New Leave Request</a>
+    <a href="#" class="w3-bar-item w3-button">Leave Requests</a>
+  </div>
+  
+  <button class="w3-button w3-bar-item w3-block " onclick="myAccFunc('demoAcc3')"><i class="fa fa-money fa-fw"></i>  Payroll <i class="fa fa-caret-down"></i></button>
+  <div id="demoAcc3" class="w3-hide w3-white w3-card">
+    <a href="#" class="w3-bar-item w3-button">Allowances</a>
+    <a href="#" class="w3-bar-item w3-button">Deductions</a>
+    <a href="#" class="w3-bar-item w3-button">Loans</a>
+    <a href="#" class="w3-bar-item w3-button">Pay Slip</a>
+  </div>
+  
+  <button class="w3-button w3-bar-item w3-block " onclick="myAccFunc('demoAcc4')"><i class="fa fa-book fa-fw"></i>  Reports <i class="fa fa-caret-down"></i></button>
+  <div id="demoAcc4" class="w3-hide w3-white w3-card">
+    <a href="#" class="w3-bar-item w3-button">Attendance</a>
+    <a href="#" class="w3-bar-item w3-button">Allowances</a>
+    <a href="#" class="w3-bar-item w3-button">Deductions</a>
+    <a href="#" class="w3-bar-item w3-button">Loans</a>
+    <a href="#" class="w3-bar-item w3-button">Payroll</a>
+    
+  </div>
+  
+  <a href="#" class="w3-bar-item w3-button "><i class="fa fa-sign-out fa-fw"></i>  Logout</a>
+</div>
 </nav>
+<script>
+function myAccFunc(id) {
+  var x = document.getElementById(id);
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+//    x.previousElementSibling.className += " w3-green";
+  } 
+  else { 
+    x.className = x.className.replace(" w3-show", "");
+//    x.previousElementSibling.className = 
+//    x.previousElementSibling.className.replace(" w3-green", "");
+  }
+}
+
+function myDropFunc() {
+  var x = document.getElementById(id);
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+//    x.previousElementSibling.className += " w3-green";
+  } 
+  else { 
+    x.className = x.className.replace(" w3-show", "");
+//    x.previousElementSibling.className = 
+//    x.previousElementSibling.className.replace(" w3-green", "");
+  }
+}
+</script>
 
 
 <!-- Overlay effect when opening sidebar on small screens -->
@@ -55,6 +110,6 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:300px;margin-top:43px;">
 
-  <!-- Header -->
+  <!-- He   ader -->
 
  
