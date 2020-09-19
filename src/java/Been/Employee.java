@@ -5,6 +5,15 @@
  */
 package Been;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.json.JSONException;
+
 /**
  *
  * @author rusha
@@ -262,7 +271,8 @@ public class Employee {
     public void setId(int id) {
         this.id = id;
     }
-    
+    Statement st;
+     ResultSet rs ;
     private String nic;
     private String epfNo;
     private String etfNo;
@@ -286,8 +296,40 @@ public class Employee {
         
     }
     
-    public boolean auth(){
-        return true;
+    public boolean auth() throws JSONException{
+        ConnectToDb();        
+        System.out.println(" Executing query ");
+        String query = "SELECT * FROM `employee` WHERE `email`='"+email+"' AND `password`='"+password+"';";
+         System.out.println(query);
+        try{
+            System.out.println(" On Process ");
+             rs = st.executeQuery(query);
+             rs.next();
+             ResultSetToJsonMapper jsonMaper= new ResultSetToJsonMapper();
+            System.out.println(jsonMaper.mapResultSet(rs));
+             return true;
+        } catch(SQLException ex){
+            System.out.println(" Error Insertong ");
+           java.util.logging.Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
+            return false; 
+        }
+        
+         
+       
+    }
+    
+    public void ConnectToDb() {
+        Config config =new Config();
+        try {
+            System.out.println(" DB 1 ");
+            Class.forName(config.getDriver());
+            Connection con = DriverManager.getConnection(config.getUrl(),config.getUserName(),config.getPassword());
+            System.out.println(" DB connected ");
+          st=con.createStatement();
+        } catch (ClassNotFoundException | SQLException ex) {
+            System.out.println(" DB connection error ");
+            java.util.logging.Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

@@ -8,10 +8,13 @@ package Servlet;
 import Been.Employee;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.json.JSONException;
 
 /**
  *
@@ -77,7 +80,13 @@ public class AuthServlet extends HttpServlet {
         Employee employee = new Employee();
         employee.setEmail(userName);
         employee.setPassword(password);
-        boolean authStatus=employee.auth();
+        boolean authStatus;
+        try {
+            authStatus = employee.auth();
+        } catch (JSONException ex) {
+            authStatus =false;
+            Logger.getLogger(AuthServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         if (authStatus){
            response.sendRedirect("Home.jsp");
