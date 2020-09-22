@@ -14,10 +14,14 @@
   <div class="w3-container">
   <table class="w3-table-all w3-hoverable">
     <thead>
-      <tr class="w3-brown">
+      <tr class="Employee">
         <th>ID</th>
+        <th></th>
+        <th>Epf No</th>
+        <th>ETF NO</th>
         <th>Name</th>
-      </tr>
+        <th>Address Bank</th>
+        <th>      </tr>
     </thead>
     <tr>
       <td></td>
