@@ -11,6 +11,24 @@
   <p><label>Add New Allowance FOR Employee </label>
  <select class="w3-select w3-border" name="employee">
     <option value="" disabled selected>Choose Employee</option>
+    <%
+try{
+ResultSet resultSet = null;
+PayrollAllowance payrollAllowance = new PayrollAllowance();
+resultSet = payrollAllowance.getAllowancesOFEmploies();
+  
+ //System.out.println(resultSet.getInt("id"));
+while(resultSet.next()){
+%>
+ <option value="<%=resultSet.getInt("id") %>"><%=resultSet.getString("name") %></option>
+<%
+}
+
+} catch (Exception e) {
+e.printStackTrace();
+}
+%>
+    
     <option value="1">Option 1</option>
     <option value="2">Option 2</option>
     <option value="3">Option 3</option>

@@ -17,7 +17,7 @@ import org.json.JSONException;
  *
  * @author Sewwandi
  */
-public class PayrollDeductions {
+public class PayrollLone {
     
     /**
      * @return the employee
@@ -34,17 +34,17 @@ public class PayrollDeductions {
     }
 
     /**
-     * @return the allowance
+     * @return the loan
      */
-    public String getDeduction() {
-        return deduction;
+    public String getLoan() {
+        return loan;
     }
 
     /**
-     * @param deduction the deduction to set
+     * @param loan the loan to set
      */
-    public void setDeduction(String deduction) {
-        this.deduction = deduction;
+    public void setLoan(String loan) {
+        this.loan = loan;
     }
 
     /**
@@ -60,16 +60,18 @@ public class PayrollDeductions {
     public void setAmmount(String ammount) {
         this.ammount = ammount;
     }
-    ResultSet rs= null ;
+   
+     ResultSet rs= null ;
      Statement st;
-    private String employee;
-        private String deduction;
+      private String employee;
+        private String loan;
         private String ammount;
-
-public boolean newDeductionForEmployee() throws JSONException{
+     
+      
+      public boolean newLoanForEmployee() throws JSONException{
         ConnectToDb();        
         
-    String query = "INSERT INTO `employeededuction`(`id`, `employee`, `deduction`, `ammount`) VALUES (NULL, '"+getEmployee()+"', '"+getDeduction()+"', '"+getAmmount()+"');";
+    String query = "INSERT INTO `employeeloan`(`id`, `employee`, `loan`, `ammount`) VALUES (NULL, '"+getEmployee()+"', '"+getLoan()+"', '"+getAmmount()+"');";
         System.out.println(query);
     try{
        System.out.println(" On Process ");
@@ -81,10 +83,10 @@ public boolean newDeductionForEmployee() throws JSONException{
           return false; 
        }       
     }
-      public ResultSet getDeductionOFEmploies() throws JSONException{
+      public ResultSet getLoanOFEmploies() throws JSONException{
         ConnectToDb();        
         System.out.println(" Executing query ");
-        String query = "SELECT * FROM `employeededuction`;";
+        String query = "SELECT * FROM `employeeloan`;";
          System.out.println(query);
         try{
             System.out.println(" On Process ");
@@ -116,4 +118,3 @@ public boolean newDeductionForEmployee() throws JSONException{
     
     
 }
-

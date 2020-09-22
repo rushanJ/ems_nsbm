@@ -40,7 +40,7 @@
 try{
 ResultSet resultSet = null;
 PayrollDeductions deduction = new PayrollDeductions();
-resultSet = deduction.getDeductionOfEmployee();
+resultSet = deduction.getDeductionOFEmployee();
   
  //System.out.println(resultSet.getInt("id"));
 while(resultSet.next()){
