@@ -1,10 +1,10 @@
 <jsp:include page="WEB-INF/CommenLayouts/Header.jsp"></jsp:include>
 
  
-    <header class="w3-container w3-black" style="height: 60px;">
+    <header class="w3-container " style="height: 60px;">
       <h2 class="w3-center">Add Leave</h2>
     </header>
- <form class="w3-container w3-card-4 w3-light-grey" >
+ <form class="w3-container w3-light-grey" >
  <div class="w3-row-padding">
     <div class="w3-row w3-section w3-third"> 
     </div>
@@ -51,13 +51,22 @@
     <div class="w3-row w3-section w3-third"> 
     </div>
     <div class="w3-row w3-section w3-third">
-         <div class="w3-col" style="width:100px;"><h6>End Date</h6></div>
+         <div class="w3-col" style="width:100px;"><h6>Reason</h6></div>
         <div class="w3-rest">
         <textarea id="w3review" name="w3review" rows="4" cols="50">
         </textarea>
         </div>
     </div>
     <div class="w3-row w3-section w3-third">
+    </div>
+ </div>
+      <div class="w3-row-padding">
+    <div class="w3-row w3-section w3-half"> 
+    </div>
+    <div class="w3-row w3-section w3-third">
+        <input type="submit" value="submit">
+    </div>
+    <div class="w3-row w3-section w3-half">
     </div>
  </div>
 
