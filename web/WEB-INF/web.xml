@@ -16,6 +16,10 @@
         <servlet-name>PayrollAllowancServlet</servlet-name>
         <servlet-class>Servlet.PayrollAllowancServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoneServlet</servlet-name>
+        <servlet-class>Servlet.LoneServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AuthServlet</servlet-name>
         <url-pattern>/AuthServlet</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>PayrollAllowancServlet</servlet-name>
         <url-pattern>/PayrollAllowancServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoneServlet</servlet-name>
+        <url-pattern>/LoneServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

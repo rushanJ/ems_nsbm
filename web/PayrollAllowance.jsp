@@ -1,4 +1,3 @@
-
 <%@page import="Been.ResultSetToJsonMapper"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="Been.PayrollAllowance"%>

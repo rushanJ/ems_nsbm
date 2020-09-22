@@ -1,4 +1,5 @@
 
+<%@page import="Been.Loan"%>
 <%@page import="Been.ResultSetToJsonMapper"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="Been.Allowance"%>
@@ -8,7 +9,7 @@
   <div class="w3-container w3-black">
     <h2>New Loan</h2>
   </div>
-  <form class="w3-container w3-card-4 w3-light-grey"  action="AllowanceServlet" method="POST" >
+  <form class="w3-container w3-card-4 w3-light-grey"  action="LoneServlet" method="POST" >
   <p><label>Add New Loan</label>
   <input class="w3-input w3-border" name="name" type="text"></p>
   
@@ -26,8 +27,8 @@
     <%
 try{
 ResultSet resultSet = null;
-Allowance allowance = new Allowance();
-resultSet = allowance.getAllowances();
+Loan lone = new Loan();
+resultSet = lone.getLone();
   
  //System.out.println(resultSet.getInt("id"));
 while(resultSet.next()){
