@@ -1,7 +1,4 @@
 
-<%@page import="Been.ResultSetToJsonMapper"%>
-<%@page import="java.sql.ResultSet"%>
-<%@page import="Been.Allowance"%>
 <jsp:include page="WEB-INF/CommenLayouts/Header.jsp"></jsp:include>
      <div class="w3-container">
 <div class="w3-card-4">
@@ -23,26 +20,14 @@
         <th>Name</th>
       </tr>
     </thead>
-    <%
-try{
-ResultSet resultSet = null;
-Allowance allowance = new Allowance();
-resultSet = allowance.getAllowances();
-  
- //System.out.println(resultSet.getInt("id"));
-while(resultSet.next()){
-%>
-<tr>
-<td><%=resultSet.getInt("id") %></td>
-<td><%=resultSet.getString("name") %></td>
-</tr>
-<%
-}
-
-} catch (Exception e) {
-e.printStackTrace();
-}
-%>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
   </table>
 </div>
 

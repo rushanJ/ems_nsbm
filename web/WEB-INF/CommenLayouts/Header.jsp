@@ -16,7 +16,14 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
   <span class="w3-bar-item w3-right">Logo</span>
 </div>
+<%
+//allow access only if session exists
+String userName = null;
+if(session.getAttribute("userName") == null){
+	response.sendRedirect("index.html");
+}else userName = (String) session.getAttribute("userName");
 
+%>
 <!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
   <div class="w3-container w3-row">
@@ -24,7 +31,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       <img src="/w3images/avatar2.png" class="w3-circle w3-margin-right" style="width:46px">
     </div>
     <div class="w3-col s8 w3-bar">
-      <span>Welcome, <strong>Mike</strong></span><br>
+      <span>Welcome, <strong><%=userName %></strong></span><br>
       <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
       <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
       <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>
@@ -44,7 +51,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <div id="demoAcc1" class="w3-hide w3-white w3-card">
     <a href="#" class="w3-bar-item w3-button">Employee</a>
     <a href="#" class="w3-bar-item w3-button">Department</a>
-    <a href="#" class="w3-bar-item w3-button">Allowances</a>
+    <a href="Allowance.jsp" class="w3-bar-item w3-button">Allowances</a>
     <a href="#" class="w3-bar-item w3-button">Deductions</a>
   </div>
  

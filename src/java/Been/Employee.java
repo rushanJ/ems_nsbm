@@ -21,6 +21,20 @@ import org.json.JSONException;
 public class Employee {
 
     /**
+     * @return the userName
+     */
+    public String getUserName() {
+        return userName;
+    }
+
+    /**
+     * @param userName the userName to set
+     */
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    /**
      * @return the nic
      */
     public String getNic() {
@@ -290,6 +304,8 @@ public class Employee {
     private String password;
     private String role;
     private String status;
+    private String userName;
+    
     private int id;
     
     public Employee(){
@@ -304,18 +320,21 @@ public class Employee {
         try{
             System.out.println(" On Process ");
              rs = st.executeQuery(query);
-             rs.next();
+             if(rs.next()) {
+                 setUserName(rs.getString("name"));
+                 setId(rs.getInt("id"));
+                
+               }
              ResultSetToJsonMapper jsonMaper= new ResultSetToJsonMapper();
             System.out.println(jsonMaper.mapResultSet(rs));
+            
+            
              return true;
         } catch(SQLException ex){
             System.out.println(" Error Insertong ");
            java.util.logging.Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
             return false; 
-        }
-        
-         
-       
+        }       
     }
     
     public void ConnectToDb() {
