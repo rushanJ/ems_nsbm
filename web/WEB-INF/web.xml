@@ -8,6 +8,10 @@
         <servlet-name>AllowanceServlet</servlet-name>
         <servlet-class>Servlet.AllowanceServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeductionServlet</servlet-name>
+        <servlet-class>Servlet.DeductionServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AuthServlet</servlet-name>
         <url-pattern>/AuthServlet</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>AllowanceServlet</servlet-name>
         <url-pattern>/AllowanceServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeductionServlet</servlet-name>
+        <url-pattern>/DeductionServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

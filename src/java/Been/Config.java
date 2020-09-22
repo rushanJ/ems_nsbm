@@ -44,10 +44,11 @@ public class Config {
     public String getPassword() {
         return password;
     }
-        private String driver = "com.mysql.jdbc.Driver";
-        private String url = "jdbc:mysql://localhost:3306/ems?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-        private String userName ="root";
-        private String password ="";
+       private String driver = "com.mysql.jdbc.Driver";
+        private String url = "jdbc:mysql://153.92.6.127:3306/u241276833_ems?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+        private String userName ="u241276833_ems";
+        private String password ="Rushan@123";
+    
     
   
     

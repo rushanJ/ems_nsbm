@@ -5,7 +5,7 @@
  */
 package Servlet;
 
-import Been.Allowance;
+import Been.Deductions;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
@@ -20,7 +20,7 @@ import org.json.JSONException;
  *
  * @author rusha
  */
-public class AllowanceServlet extends HttpServlet {
+public class DeductionServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,10 +39,10 @@ public class AllowanceServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AllowanceServlet</title>");            
+            out.println("<title>Servlet DeductionServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet AllowanceServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet DeductionServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -74,17 +74,16 @@ public class AllowanceServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
-         String name=request.getParameter("name");
-         Allowance allowance =new Allowance();
-         allowance.setName(name);
-        try {
-            if (allowance.newAllowance()){
-                response.sendRedirect("Allowance.jsp");
+       String name=request.getParameter("name");
+       Deductions deduction = new Deductions();
+       deduction.setName(name);
+       try {
+            if (deduction.newDeduction()){
+                response.sendRedirect("Deduction.jsp");
             }
             else
             {
-                response.sendRedirect("Allowance.html");
+                response.sendRedirect("Deduction.jsp");
             }
         } catch (JSONException ex) {
             Logger.getLogger(AllowanceServlet.class.getName()).log(Level.SEVERE, null, ex);

@@ -52,7 +52,7 @@ if(session.getAttribute("userName") == null){
     <a href="#" class="w3-bar-item w3-button">Employee</a>
     <a href="#" class="w3-bar-item w3-button">Department</a>
     <a href="Allowance.jsp" class="w3-bar-item w3-button">Allowances</a>
-    <a href="#" class="w3-bar-item w3-button">Deductions</a>
+    <a href="Deduction.jsp" class="w3-bar-item w3-button">Deductions</a>
   </div>
  
   <button class="w3-button w3-bar-item w3-block " onclick="myAccFunc('demoAcc2')"><i class="fa fa-plane fa-fw"></i>  Leave <i class="fa fa-caret-down"></i></button>
