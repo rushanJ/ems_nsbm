@@ -1,4 +1,5 @@
 
+<%@page import="Been.Allowance"%>
 <%@page import="Been.ResultSetToJsonMapper"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="Been.PayrollAllowance"%>
@@ -12,6 +13,24 @@
   <p><label>Add New Allowance FOR Employee </label>
  <select class="w3-select w3-border" name="employee">
     <option value="" disabled selected>Choose Employee</option>
+    <%
+try{
+ResultSet resultSet = null;
+Allowance allowance = new Allowance();
+resultSet = allowance.getAllowances();
+  
+ //System.out.println(resultSet.getInt("id"));
+while(resultSet.next()){
+%>
+ <option value="<%=resultSet.getInt("id") %>"><%=resultSet.getInt("name") %></option>
+<%
+}
+
+} catch (Exception e) {
+e.printStackTrace();
+}
+%>
+    
     <option value="1">Option 1</option>
     <option value="2">Option 2</option>
     <option value="3">Option 3</option>
