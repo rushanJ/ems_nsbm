@@ -4,21 +4,21 @@
   <h2>Allowances</h2>
   
 <div class="w3-card-4">
-  <div class="w3-container w3-brown">
+  <div class="w3-container w3-black">
     <h2>New Allowance</h2>
   </div>
   <form class="w3-container" action="/action_page.php">
     <p>      
-    <label class="w3-text-brown"><b> Name</b></label>
+    <label class="w3-text-black"><b> Name</b></label>
     <input class="w3-input w3-border w3-sand" name="name" type="text"></p>
     <p>
-    <button class="w3-btn w3-brown">Add</button></p>
+    <button class="w3-btn w3-blaqqck">Add</button></p>
   </form>
     
-      <div class="w3-container w3-brown">
+      <div class="w3-container w3-black">
     <table class="w3-table-all">
     <thead>
-      <tr class="w3-red">
+      <tr class="w3-black">
         <th>First Name</th>
         <th>Last Name</th>
         <th>Points</th>
