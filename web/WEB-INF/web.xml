@@ -12,6 +12,10 @@
         <servlet-name>DeductionServlet</servlet-name>
         <servlet-class>Servlet.DeductionServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PayrollAllowancServlet</servlet-name>
+        <servlet-class>Servlet.PayrollAllowancServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AuthServlet</servlet-name>
         <url-pattern>/AuthServlet</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>DeductionServlet</servlet-name>
         <url-pattern>/DeductionServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PayrollAllowancServlet</servlet-name>
+        <url-pattern>/PayrollAllowancServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -11,38 +11,69 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
-import javax.servlet.http.HttpSession;
 import org.json.JSONException;
 
 /**
  *
  * @author rusha
  */
-public class Allowance {
+public class PayrollAllowance {
 
     /**
-     * @return the name
+     * @return the employee
      */
-    public String getName() {
-        return name;
+    public String getEmployee() {
+        return employee;
     }
 
     /**
-     * @param name the name to set
+     * @param employee the employee to set
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setEmployee(String employee) {
+        this.employee = employee;
     }
-    public Allowance() {
-}
-      Statement st;
-     ResultSet rs= null ;
-    private String name;
+
+    /**
+     * @return the allowance
+     */
+    public String getAllowance() {
+        return allowance;
+    }
+
+    /**
+     * @param allowance the allowance to set
+     */
+    public void setAllowance(String allowance) {
+        this.allowance = allowance;
+    }
+
+    /**
+     * @return the ammount
+     */
+    public String getAmmount() {
+        return ammount;
+    }
+
+    /**
+     * @param ammount the ammount to set
+     */
+    public void setAmmount(String ammount) {
+        this.ammount = ammount;
+    }
+    public PayrollAllowance(){}
     
-    public boolean newAllowance() throws JSONException{
+    
+     ResultSet rs= null ;
+     Statement st;
+      private String employee;
+        private String allowance;
+        private String ammount;
+     
+      
+      public boolean newAllowanceForEmployee() throws JSONException{
         ConnectToDb();        
-        System.out.println(name);
-    String query = "INSERT INTO `allowance` (`id`, `name`) VALUES (NULL, '"+name+"');";
+        
+    String query = "INSERT INTO `employeeallowance`(`id`, `employee`, `allowance`, `ammount`) VALUES (NULL, '"+getEmployee()+"', '"+getAllowance()+"', '"+getAmmount()+"');";
         System.out.println(query);
     try{
        System.out.println(" On Process ");
@@ -54,11 +85,10 @@ public class Allowance {
           return false; 
        }       
     }
-     public ResultSet getAllowances() throws JSONException{
-         
+      public ResultSet getAllowancesOFEmploies() throws JSONException{
         ConnectToDb();        
         System.out.println(" Executing query ");
-        String query = "SELECT * FROM `allowance`;";
+        String query = "SELECT * FROM `employeeallowance`;";
          System.out.println(query);
         try{
             System.out.println(" On Process ");
@@ -87,5 +117,6 @@ public class Allowance {
             java.util.logging.Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
     
 }
