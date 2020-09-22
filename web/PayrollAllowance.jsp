@@ -22,7 +22,7 @@ resultSet = allowance.getAllowances();
  //System.out.println(resultSet.getInt("id"));
 while(resultSet.next()){
 %>
- <option value="<%=resultSet.getInt("id") %>"><%=resultSet.getInt("name") %></option>
+ <option value="<%=resultSet.getInt("id") %>"><%=resultSet.getString("name") %></option>
 <%
 }
 
