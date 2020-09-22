@@ -5,16 +5,66 @@
         <servlet-class>Servlet.AuthServlet</servlet-class>
     </servlet>
     <servlet>
+<<<<<<< HEAD
         <servlet-name>newemployee</servlet-name>
         <servlet-class>Servlet.newemployee</servlet-class>
+=======
+        <servlet-name>AllowanceServlet</servlet-name>
+        <servlet-class>Servlet.AllowanceServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeductionServlet</servlet-name>
+        <servlet-class>Servlet.DeductionServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PayrollAllowancServlet</servlet-name>
+        <servlet-class>Servlet.PayrollAllowancServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoneServlet</servlet-name>
+        <servlet-class>Servlet.LoneServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PayrollDeductionServlet</servlet-name>
+        <servlet-class>Servlet.PayrollDeductionServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PayrollLoanServlet</servlet-name>
+        <servlet-class>Servlet.PayrollLoanServlet</servlet-class>
+>>>>>>> 43c9a1cb2d548576cd4b3d49218a11d7a2010845
     </servlet>
     <servlet-mapping>
         <servlet-name>AuthServlet</servlet-name>
         <url-pattern>/AuthServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+<<<<<<< HEAD
         <servlet-name>newemployee</servlet-name>
         <url-pattern>/newemployee</url-pattern>
+=======
+        <servlet-name>AllowanceServlet</servlet-name>
+        <url-pattern>/AllowanceServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeductionServlet</servlet-name>
+        <url-pattern>/DeductionServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PayrollAllowancServlet</servlet-name>
+        <url-pattern>/PayrollAllowancServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoneServlet</servlet-name>
+        <url-pattern>/LoneServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PayrollDeductionServlet</servlet-name>
+        <url-pattern>/PayrollDeductionServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PayrollLoanServlet</servlet-name>
+        <url-pattern>/PayrollLoanServlet</url-pattern>
+>>>>>>> 43c9a1cb2d548576cd4b3d49218a11d7a2010845
     </servlet-mapping>
     <session-config>
         <session-timeout>
