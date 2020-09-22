@@ -38,6 +38,7 @@ public class Allowance {
       Statement st;
      ResultSet rs= null ;
     private String name;
+    
      public boolean newAllowance() throws JSONException{
         ConnectToDb();        
         System.out.println(name);
