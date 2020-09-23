@@ -14,6 +14,12 @@
         <div style="margin:20px;display: inline-block;" id="square">Short Leave</div>
         <div style="margin:20px;display: inline-block;" id="square">Maternity</div>  -->
 
+
+
+
+
+
+
         <div class="w3-card-4" style="width:24%;display: inline-block;cursor: pointer;">
             <img src="./img/medical.png" alt="Alps" style="width: 100%;padding: 50px;" class="zoom">
             <footer class="w3-container w3-red w3-center">

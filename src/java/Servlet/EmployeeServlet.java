@@ -5,7 +5,7 @@
  */
 package Servlet;
 
-import Been.Deductions;
+import Been.Employee;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
@@ -20,7 +20,7 @@ import org.json.JSONException;
  *
  * @author rusha
  */
-public class DeductionServlet extends HttpServlet {
+public class EmployeeServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,10 +39,10 @@ public class DeductionServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet DeductionServlet</title>");            
+            out.println("<title>Servlet EmployeeServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet DeductionServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet EmployeeServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -74,20 +74,60 @@ public class DeductionServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       String name=request.getParameter("name");
-       Deductions deduction = new Deductions();
-       deduction.setName(name);
-       try {
-            if (deduction.newDeduction()){
-                response.sendRedirect("Deduction.jsp");
+        String nic=request.getParameter("nic");
+        String epfNo=request.getParameter("epfNo");
+        String etfNo=request.getParameter("etfNo");
+        String name=request.getParameter("name");
+        String address=request.getParameter("address");
+        String bank=request.getParameter("bank");
+        String bankAccount=request.getParameter("bankAccount");
+        String contactNo=request.getParameter("contactNo");
+        String title=request.getParameter("title");
+        String basic=request.getParameter("basic");
+        String department=request.getParameter("department");
+        String manager=request.getParameter("manager");
+        String email=request.getParameter("email");
+        String password=request.getParameter("password");
+        String role=request.getParameter("role");
+        
+        Employee employee = new Employee();
+        employee.setNic(nic);
+        employee.setEpfNo(epfNo);
+        employee.setEtfNo(etfNo);
+        employee.setName(name);
+        employee.setAddress(address);
+        employee.setBank(bank);
+        employee.setBankAccount(bankAccount);
+        employee.setContactNo(contactNo);
+        employee.setTitle(title);
+        employee.setBasic(basic);
+        employee.setDepartment(department);
+        employee.setManager(manager);
+        employee.setEmail(email);
+        employee.setPassword(password);
+        employee.setRole(role);
+        employee.setStatus("ACTIVE");
+        
+        System.out.println(epfNo);
+         try {
+            if (employee.newEmployee()){
+                response.sendRedirect("Employee.jsp");
             }
             else
             {
-                response.sendRedirect("Deduction.jsp");
+                response.sendRedirect("Employee.jsp");
             }
         } catch (JSONException ex) {
             Logger.getLogger(AllowanceServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        
+        
+        
+        
+        
+        
+        
     }
 
     /**

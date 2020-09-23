@@ -1,3 +1,5 @@
+
+<%@page import="Been.Allowance"%>
 <%@page import="Been.ResultSetToJsonMapper"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="Been.PayrollAllowance"%>
@@ -14,8 +16,8 @@
     <%
 try{
 ResultSet resultSet = null;
-PayrollAllowance payrollAllowance = new PayrollAllowance();
-resultSet = payrollAllowance.getAllowancesOFEmploies();
+Allowance allowance = new Allowance();
+resultSet = allowance.getAllowances();
   
  //System.out.println(resultSet.getInt("id"));
 while(resultSet.next()){

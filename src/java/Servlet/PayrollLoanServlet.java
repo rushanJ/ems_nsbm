@@ -5,7 +5,7 @@
  */
 package Servlet;
 
-import Been.PayrollAllowance;
+import Been.PayrollLoan;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
@@ -74,8 +74,8 @@ public class PayrollLoanServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-      //  processRequest(request, response);
-     String employee=request.getParameter("employee");
+       // processRequest(request, response);
+    String employee=request.getParameter("employee");
         String loan=request.getParameter("loan");
         String ammount=request.getParameter("ammount");
         PayrollLoan payrollLoan =new PayrollLoan();
@@ -83,12 +83,16 @@ public class PayrollLoanServlet extends HttpServlet {
         payrollLoan.setLoan(loan);
         payrollLoan.setAmmount(ammount);
         
-        if (payrollLoan.newLoanForEmployee()){
-            response.sendRedirect("PayrollLoan.jsp");
-        }
-        else
-        {
-            response.sendRedirect("PayrollLoan.jsp");
+        try {
+            if (payrollLoan.newLoanForEmployee()){
+                response.sendRedirect("PayrollDeductions.jsp");
+            }
+            else
+            {
+                response.sendRedirect("PayrollDeductions.jsp");
+            }
+        } catch (JSONException ex) {
+            Logger.getLogger(PayrollLoanServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -101,27 +105,5 @@ public class PayrollLoanServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
-    private static class PayrollLoan {
-
-        public PayrollLoan() {
-        }
-
-        private void setEmployee(String employee) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
-
-        private void setLoan(String loan) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
-
-        private void setAmmount(String ammount) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
-
-        private boolean newLoanForEmployee() {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
-    }
 
 }

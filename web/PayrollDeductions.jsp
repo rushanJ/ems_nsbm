@@ -5,7 +5,7 @@
      <div class="w3-container">
 <div class="w3-card-4">
   <div class="w3-container w3-black">
-    <h2>New Allowance</h2>
+    <h2>New Deduction</h2>
   </div>
   <form class="w3-container w3-card-4 w3-light-grey"  action="PayrollAllowancServlet" method="POST" >
   <p><label>Add New Deduction FOR Employee </label>
@@ -40,7 +40,7 @@
 try{
 ResultSet resultSet = null;
 PayrollDeductions deduction = new PayrollDeductions();
-resultSet = deduction.getDeductionOFEmployee();
+resultSet = deduction.getDeductionOFEmploies();
   
  //System.out.println(resultSet.getInt("id"));
 while(resultSet.next()){
