@@ -1,80 +1,87 @@
-<jsp:include page="WEB-INF/CommenLayouts/Header.jsp"></jsp:include>
-<form class="w3-container w3-card-4 w3-light-grey" style="margin: 20px;">
- <div class="w3-card-4" style="width:100%; padding: 10px;">
-    <header class="w3-container w3-black" style="height: 60px;">
-      <h2 class="w3-center">Pay Slip</h2>
-    </header>
- </div>
- <div class="w3-row w3-section w3-right">
-    <div class="w3-row w3-section w3-half">
-        <div class="w3-col" style="width:100px"><h6>ID  </h6></div>
-        <div class="w3-rest">
-          <input class="w3-input w3-border" style="width: 50%;" name="id" type="text" placeholder="ID">
-        </div>
-    </div>
-    <div class="w3-row w3-section w3-half">
-         <div class="w3-col" style="width:100px"><h6>Month  </h6></div>
-        <div class="w3-rest">
-        <input class="w3-input w3-border" style="width: 50%;" name="date" type="text" placeholder="Month / Year">
-        </div>
-    </div>
-    <div  class="w3-row w3-section w3-half">
-        <div class="w3-col" style="width:100px"><h6>Name  </h6></div>
-        <div class="w3-rest">
-        <input class="w3-input w3-border" style="width: 50%;" name="name" type="text" placeholder="Name">
-        </div>
-    </div>
-    
-    <div class="w3-row w3-section w3-half">
-        <div class="w3-col" style="width:100px"><h6>Department  </h6></div>
-        <div class="w3-rest">
-         <input class="w3-input w3-border" style="width: 50%;" name="department" type="text" placeholder="Department">
-        </div>
-    </div>
-    <div class="w3-row w3-section w3-half">
-        <div class="w3-col" style="width:100px"><h6>Worked Days  </h6></div>
-        <div class="w3-rest">
-        <input class="w3-input w3-border" style="width: 50%;" name="Worked Days" type="text" placeholder="Worked Days">
-        </div>
-    </div>
-    <div class="w3-row w3-section w3-half">
-        <div class="w3-col" style="width:100px"><h6>Account No  </h6></div>
-        <div class="w3-rest">
-        <input class="w3-input w3-border" style="width: 50%;" name="account_no" type="text" placeholder="Account Number">
-        </div>
-    </div>
- </div>
 
-    <div class="w3-container">
-            <table class="w3-table-all">
-              <tr>
-                <td>Basic Salary</td>
-                <td class="w3-right-align"><input class="w3-input w3-border" name="basic" type="text" placeholder="+ Basic Salary"></td>
-              </tr>
-              <tr>
-                 <td>Allowance</td>
-                <td class="w3-right-align"><input class="w3-input w3-border" name="allowance" type="text" placeholder="+ Allowance"></td>
-              </tr>
-              <tr>
-                 <td>Deduction</td>
-                <td class="w3-right-align"><input class="w3-input w3-border" name="deduction" type="text" placeholder="- Deduction"></td>
-              </tr>
-              <tr>
-                 <td>Loan</td>
-                <td class="w3-right-align"><input class="w3-input w3-border" name="loan" type="text" placeholder="- Loan"></td>
-              </tr>
-            </table>
-          </div>
-      <table class="w3-table-all" style="margin: 20px;" >
-        <tr>
-            <td><input class="w3-input w3-border"  style="margin: 10px;" name="netsal" type="text" placeholder="Net Salary"> </td>  
-            <td><button class="w3-button w3-black w3-right" style="margin: 10px;">NET SALARY</button></td>
-        </tr>
-      </table>
-</form>
-    
-    
-  </br>
-    </form>
+<%@page import="Been.Allowance"%>
+<%@page import="Been.ResultSetToJsonMapper"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="Been.PayrollAllowance"%>
+<jsp:include page="WEB-INF/CommenLayouts/Header.jsp"></jsp:include>
+     <div class="w3-container">
+<div class="w3-card-4">
+  <div class="w3-container w3-black">
+    <h2>Pay Slip</h2>
+  </div>
+  <form class="w3-container w3-card-4 w3-light-grey"  action="PayrollAllowancServlet" method="POST" >
+  <p><label>Add New Pay FOR Employee </label>
+ <select class="w3-select w3-border" name="employee">
+    <option value="" disabled selected>Choose Employee</option>
+    <%
+try{
+ResultSet resultSet = null;
+PaySlip paySlip = new PaySlip();
+resultSet = paySlip.getPaySlipOFEmploies();
   
+ //System.out.println(resultSet.getInt("id"));
+while(resultSet.next()){
+%>
+ <option value="<%=resultSet.getInt("id") %>"><%=resultSet.getString("name") %></option>
+<%
+}
+
+} catch (Exception e) {
+e.printStackTrace();
+}
+%>
+    
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+  </select>
+      
+  <select class="w3-select w3-border" name="allowance">
+    <option value="" disabled selected>Choose Allowance Type</option>
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+  </select>
+  
+     <input class="w3-input w3-border w3-light-grey" name="ammount" placeholder= "Ammount" type="text">
+     
+    <input type="submit" class="w3-btn w3-black" value="Add"></p>
+  </br>
+  <div class="w3-container">
+  <table class="w3-table-all w3-hoverable">
+    <thead>
+      <tr class="w3-black">
+        <th>ID</th>
+        <th>Name</th>
+           <th>Amount </th>
+      </tr>
+    </thead>
+    <%
+try{
+ResultSet resultSet = null;
+PayrollAllowance allowance = new PayrollAllowance();
+resultSet = allowance.getAllowancesOFEmploies();
+  
+ //System.out.println(resultSet.getInt("id"));
+while(resultSet.next()){
+%>
+<tr>
+<td><%=resultSet.getInt("id") %></td>
+<td><%=resultSet.getString("employee") %></td>
+<td><%=resultSet.getString("ammount") %></td>
+</tr>
+<%
+}
+
+} catch (Exception e) {
+e.printStackTrace();
+}
+%>
+  </table>
+</div>
+
+  </form>
+    
+      
+
 <jsp:include page="WEB-INF/CommenLayouts/Footer.jsp"></jsp:include>
