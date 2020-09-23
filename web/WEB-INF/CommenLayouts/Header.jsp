@@ -19,10 +19,15 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <%
 //allow access only if session exists
 String userName = null;
+
 if(session.getAttribute("userName") == null){
 	response.sendRedirect("index.html");
 }else userName = (String) session.getAttribute("userName");
 
+String userId = null;
+if(session.getAttribute("userId") == null){
+	response.sendRedirect("index.html");
+}else userId = (String) session.getAttribute("userId");
 %>
 <!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
@@ -74,11 +79,11 @@ if(session.getAttribute("userName") == null){
   
   <button class="w3-button w3-bar-item w3-block " onclick="myAccFunc('demoAcc4')"><i class="fa fa-book fa-fw"></i>  Reports <i class="fa fa-caret-down"></i></button>
   <div id="demoAcc4" class="w3-hide w3-white w3-card">
-    <a href="#" class="w3-bar-item w3-button">Attendance</a>
-    <a href="ReportAttendence.jsp" class="w3-bar-item w3-button">Allowances</a>
+    <a href="ReportAttendence.jsp" class="w3-bar-item w3-button">Attendance</a>
+<!--    <a href="ReportAttendence.jsp" class="w3-bar-item w3-button">Allowances</a>
     <a href="ReportDeductions.jsp" class="w3-bar-item w3-button">Deductions</a>
     <a href="ReportLoans.jsp" class="w3-bar-item w3-button">Loans</a>
-    <a href="ReportPayroll.jsp" class="w3-bar-item w3-button">Payroll</a>
+    <a href="ReportPayroll.jsp" class="w3-bar-item w3-button">Payroll</a>-->
     
   </div>
   

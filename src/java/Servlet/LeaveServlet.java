@@ -5,12 +5,16 @@
  */
 package Servlet;
 
+import Been.Leave;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.json.JSONException;
 
 /**
  *
@@ -70,7 +74,32 @@ public class LeaveServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String type=request.getParameter("type");
+        String employee=request.getParameter("employee");
+        String startDate=request.getParameter("startDate");
+        String endDate=request.getParameter("endDate");
+        String remark=request.getParameter("remark");
+        
+        Leave leave =new Leave();
+        leave.setEmployee(employee);
+        leave.setEndDate(endDate);
+        leave.setRemark(remark);
+        leave.setRequestedDate(null);
+        leave.setStartDate(startDate);
+        leave.setStatus("PENDING");
+        leave.setType(type);
+        
+        try {
+            if (leave.newLeave()){
+                response.sendRedirect("dashboardLeave.jsp");
+            }
+            else
+            {
+                response.sendRedirect("dashboardLeave.jsp");
+            }
+        } catch (JSONException ex) {
+            Logger.getLogger(AllowanceServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

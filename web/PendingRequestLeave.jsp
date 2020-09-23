@@ -1,3 +1,5 @@
+<%@page import="Been.Leave"%>
+<%@page import="java.sql.ResultSet"%>
 <jsp:include page="WEB-INF/CommenLayouts/Header.jsp"></jsp:include>
 <!--Model box-->
  <div id="id01" class="w3-modal">
@@ -39,15 +41,34 @@
                 <th></th>
               </tr>
             </thead>
-            <tr>
-              <td>102345</td>
-              <td>Smith Perera</td>
-              <td>2020.12.20</td>
-              <td>2020.12.22</td>
-              <td>2020.12.23</td>
-              <td>Standard</td>
-              <td>Function</td>
-              <td>15</td>
+            <%
+//allow access only if session exists
+
+String userId = null;
+if(session.getAttribute("userId") == null){
+	response.sendRedirect("index.html");
+}else userId = (String) session.getAttribute("userId");
+%>
+            <%
+try{
+ResultSet resultSet = null;
+Leave leave = new Leave();
+resultSet = leave.getWaitingLeave(userId);
+  
+ //System.out.println(resultSet.getInt("id"));
+while(resultSet.next()){
+%>
+
+
+<tr>
+              <td><%=resultSet.getInt("id") %></td>
+              <td><%=resultSet.getString("employee") %></td>
+              <td><%=resultSet.getString("requestedDate") %></td>
+              <td><%=resultSet.getString("startDate") %></td>
+              <td><%=resultSet.getString("endDate") %></td>
+              <td><%=resultSet.getString("type") %></td>
+              <td><%=resultSet.getString("remark") %></td>
+              <td><%=resultSet.getString("employee") %></td>
               <td>
                   <form action="#"><input type="submit" value="Accept" class="w3-button w3-round-xxlarge w3-green w3-hover-pale-green"></form>
               </td>
@@ -55,38 +76,15 @@
                   <form action="#"><input type="submit" value="Decline" class="w3-button w3-round-xxlarge w3-red w3-hover-pale-red" onclick="document.getElementById('id01').style.display='block'"></form>
               </td>
             </tr>
-           <tr>
-              <td>102345</td>
-              <td>Smith Perera</td>
-              <td>2020.12.20</td>
-              <td>2020.12.22</td>
-              <td>2020.12.23</td>
-              <td>Standard</td>
-              <td>Function</td>
-              <td>15</td>
-              <td>
-                  <form action="#"><input type="submit" value="Accept" class="w3-button w3-round-xxlarge w3-green w3-hover-pale-green"></form>
-              </td>
-              <td>
-                  <form action="#"><input type="submit" value="Decline" class="w3-button w3-round-xxlarge w3-red w3-hover-pale-red"></form>
-              </td>
-            </tr>
-            <tr>
-              <td>102345</td>
-              <td>Smith Perera</td>
-              <td>2020.12.20</td>
-              <td>2020.12.22</td>
-              <td>2020.12.23</td>
-              <td>Standard</td>
-              <td>Function</td>
-              <td>15</td>
-              <td>
-                  <form action="#"><input type="submit" value="Accept" class="w3-button w3-round-xxlarge w3-green w3-hover-pale-green"></form>
-              </td>
-              <td>
-                  <form action="#"><input type="submit" value="Decline" class="w3-button w3-round-xxlarge w3-red w3-hover-pale-red"></form>
-              </td>
-            </tr>
+
+<%
+}
+
+} catch (Exception e) {
+e.printStackTrace();
+}
+%>
+            
           </table>
     </div>
     

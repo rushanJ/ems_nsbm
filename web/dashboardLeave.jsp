@@ -1,3 +1,5 @@
+<%@page import="Been.Leave"%>
+<%@page import="java.sql.ResultSet"%>
 <jsp:include page="WEB-INF/CommenLayouts/Header.jsp"></jsp:include>
 
 
@@ -71,38 +73,40 @@
                 <th>Type</th>
                 <th>Reason</th>
       </tr>
-    </thead>
+    </thead><%
+//allow access only if session exists
 
-            <tr>
-            
-              <td>2020.09.18</td>
-              <td>2020.09.20</td>
-              <td>2020.12.20</td>
-              <td>Standard</td>
-              <td>Function</td>
-             
-            </tr>
-           <tr>
+String userId = null;
+if(session.getAttribute("userId") == null){
+	response.sendRedirect("index.html");
+}else userId = (String) session.getAttribute("userId");
+%>
+
+            <%
+try{
+ResultSet resultSet = null;
+Leave leave = new Leave();
+resultSet = leave.getLeaveById(userId);
+  
+ //System.out.println(resultSet.getInt("id"));
+while(resultSet.next()){
+%>
+<tr>
          
-              <td>2020.06.10</td>
-              <td>2020.06.10</td>
-              <td>2020.12.12</td>
-              <td>Standard</td>
-              <td>Funeral</td>
-         
-         
-            </tr>
-            <tr>
-       
-              <td>2020.01.22</td>
-              <td>2020.01.22</td>
-              <td>2020.01.22</td>
-              <td>Standard</td>
-              <td>Emergency</td>
-             
-             
-            
-            </tr>
+              <td><%=resultSet.getString("requestedDate") %></td>
+              <td><%=resultSet.getString("startDate") %></td>
+              <td><%=resultSet.getString("endDate") %></td>
+              <td><%=resultSet.getString("type") %></td>
+              <td><%=resultSet.getString("remark") %></td>
+                     </tr>
+<%
+}
+
+} catch (Exception e) {
+e.printStackTrace();
+}
+%>
+           
           </table>
         </br>
         </br>
