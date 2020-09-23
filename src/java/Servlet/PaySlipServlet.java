@@ -5,7 +5,8 @@
  */
 package Servlet;
 
-import Been.Employee;
+import Been.Allowance;
+import Been.PaySlip;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
@@ -14,14 +15,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import org.json.JSONException;
 
 /**
  *
- * @author rusha
+ * @author Sewwandi
  */
-public class AuthServlet extends HttpServlet {
+public class PaySlipServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,10 +40,10 @@ public class AuthServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AuthServlet</title>");            
+            out.println("<title>Servlet PaySlipServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet AuthServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet PaySlipServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -75,34 +75,22 @@ public class AuthServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
-        String userName=request.getParameter("userName");
-        String password=request.getParameter("password");
-        Employee employee = new Employee();
-        employee.setEmail(userName);
-        employee.setPassword(password);
-        boolean authStatus;
+        //processRequest(request, response);
+  String name=request.getParameter("name");
+         PaySlip paySlip =new PaySlip();
+         paySlip.setName(name);
         try {
-            authStatus = employee.auth();
-            HttpSession session = request.getSession();
-            session.setAttribute("userName", employee.getUserName());
-            session.setAttribute("userId", employee.getUserName());
-            session.setMaxInactiveInterval(60*60);
+            if (paySlip.newPaySlip()){
+                response.sendRedirect("PaySlip.jsp");
+            }
+            else
+            {
+                response.sendRedirect("PaySlip.html");
+            }
         } catch (JSONException ex) {
-            authStatus =false;
-            Logger.getLogger(AuthServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PaySlipServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        if (authStatus){
-           response.sendRedirect("Home.jsp");
-        }
-        else
-        {
-             response.sendRedirect("index.html");
-        }
-        
     }
-
     /**
      * Returns a short description of the servlet.
      *
@@ -111,5 +99,6 @@ public class AuthServlet extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }
+    }// </editor-fold>
+
 }

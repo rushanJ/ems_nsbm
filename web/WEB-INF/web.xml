@@ -28,6 +28,10 @@
         <servlet-name>LeaveServlet</servlet-name>
         <servlet-class>Servlet.LeaveServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PaySlipServlet</servlet-name>
+        <servlet-class>Servlet.PaySlipServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AuthServlet</servlet-name>
         <url-pattern>/AuthServlet</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>LeaveServlet</servlet-name>
         <url-pattern>/LeaveServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PaySlipServlet</servlet-name>
+        <url-pattern>/PaySlipServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
