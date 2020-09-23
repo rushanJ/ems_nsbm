@@ -46,68 +46,70 @@
         </div>
     </div>
    
+    <div class="w3-row w3-section w3-third">
+      
+        <a href="AddLeave.jsp" class="w3-bar-item w3-button ">
+            <button class="w3-button w3-ripple w3-teal">Add New Leave</button></a>
+            
+        <a href="PendingRequestLeave.jsp" class="w3-bar-item w3-button ">
+            <button class="w3-button w3-ripple w3-teal">Pending Requests</button></a>
+    </div>
+     
+     
  </div>
+   
     <div class="w3-row-padding">
     <h3 class="w3-center">Recent Leaves</h3>
-    <div class="w3-row w3-section">
-        <div class="w3-card">
-            <div class="w3-container">
-                <div class="w3-row">
-                    <div class="w3-col s11"><p>Lorem ipsum...Lorem ipsum...Lorem ipsum...Lorem ipsum...Lorem ipsum...</p></div>
-                    <div class="w3-col s1"><p>2020.09.19</p></div>
-                </div>
-            </div>
-        </div>
-        <div class="w3-card">
-            <div class="w3-container">
-                <div class="w3-row">
-                    <div class="w3-col s11"><p>Lorem ipsum...Lorem ipsum...Lorem ipsum...Lorem ipsum...Lorem ipsum...</p></div>
-                    <div class="w3-col s1"><p>2020.09.19</p></div>
-                </div>
-            </div>
-        </div>
-        <div class="w3-card">
-            <div class="w3-container">
-                <div class="w3-row">
-                    <div class="w3-col s11"><p>Lorem ipsum...Lorem ipsum...Lorem ipsum...Lorem ipsum...Lorem ipsum...</p></div>
-                    <div class="w3-col s1"><p>2020.09.19</p></div>
-                </div>
-            </div>
-        </div>
-        <div class="w3-card">
-            <div class="w3-container">
-                <div class="w3-row">
-                    <div class="w3-col s11"><p>Lorem ipsum...Lorem ipsum...Lorem ipsum...Lorem ipsum...Lorem ipsum...</p></div>
-                    <div class="w3-col s1"><p>2020.09.19</p></div>
-                </div>
-            </div>
-        </div>
-        <div class="w3-card">
-            <div class="w3-container">
-                <div class="w3-row">
-                    <div class="w3-col s11"><p>Lorem ipsum...Lorem ipsum...Lorem ipsum...Lorem ipsum...Lorem ipsum...</p></div>
-                    <div class="w3-col s1"><p>2020.09.19</p></div>
-                </div>
-            </div>
-        </div>
-        <div class="w3-card">
-            <div class="w3-container">
-                <div class="w3-row">
-                    <div class="w3-col s11"><p>Lorem ipsum...Lorem ipsum...Lorem ipsum...Lorem ipsum...Lorem ipsum...</p></div>
-                    <div class="w3-col s1"><p>2020.09.19</p></div>
-                </div>
-            </div>
-        </div>
-        <div class="w3-card">
-            <div class="w3-container">
-                <div class="w3-row">
-                    <div class="w3-col s11"><p>Lorem ipsum...Lorem ipsum...Lorem ipsum...Lorem ipsum...Lorem ipsum...</p></div>
-                    <div class="w3-col s1"><p>2020.09.19</p></div>
-                </div>
-            </div>
-        </div>
-        
+    
+    <div class="w3-container">
+  <table class="w3-table-all w3-hoverable">
+    <thead>
+      <tr class="w3-black">
+                <th>Requested Date</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Type</th>
+                <th>Reason</th>
+      </tr>
+    </thead>
+
+            <tr>
+            
+              <td>2020.09.18</td>
+              <td>2020.09.20</td>
+              <td>2020.12.20</td>
+              <td>Standard</td>
+              <td>Function</td>
+             
+            </tr>
+           <tr>
+         
+              <td>2020.06.10</td>
+              <td>2020.06.10</td>
+              <td>2020.12.12</td>
+              <td>Standard</td>
+              <td>Funeral</td>
+         
+         
+            </tr>
+            <tr>
+       
+              <td>2020.01.22</td>
+              <td>2020.01.22</td>
+              <td>2020.01.22</td>
+              <td>Standard</td>
+              <td>Emergency</td>
+             
+             
+            
+            </tr>
+          </table>
     </div>
+         </div>
+    </div>
+ </div>
+  
+ 
    
  </div>
    
