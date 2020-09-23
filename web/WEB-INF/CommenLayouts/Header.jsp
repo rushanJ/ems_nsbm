@@ -54,12 +54,15 @@ if(session.getAttribute("userName") == null){
     <a href="Allowance.jsp" class="w3-bar-item w3-button">Allowances</a>
     <a href="Deduction.jsp" class="w3-bar-item w3-button">Deductions</a>
   </div>
+  
+   <a href="dashboardLeave.jsp" class="w3-bar-item w3-button "><i class="fa fa-sign-out fa-fw"></i> Leave</a>
+   
  
-  <button class="w3-button w3-bar-item w3-block " onclick="myAccFunc('demoAcc2')"><i class="fa fa-plane fa-fw"></i>  Leave <i class="fa fa-caret-down"></i></button>
+<!--  <button class="w3-button w3-bar-item w3-block " onclick="myAccFunc('demoAcc2')"><i class="fa fa-plane fa-fw"></i>  Leave <i class="fa fa-caret-down"></i></button>
   <div id="demoAcc2" class="w3-hide w3-white w3-card">
     <a href="AddLeave.jsp" class="w3-bar-item w3-button">New Leave Request</a>
     <a href="PendingRequestLeave.jsp" class="w3-bar-item w3-button">Leave Requests</a>
-  </div>
+  </div>-->
   
   <button class="w3-button w3-bar-item w3-block " onclick="myAccFunc('demoAcc3')"><i class="fa fa-money fa-fw"></i>  Payroll <i class="fa fa-caret-down"></i></button>
   <div id="demoAcc3" class="w3-hide w3-white w3-card">
