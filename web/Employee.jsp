@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> 23e89d0f46b4f691be33897a51c91cc3fe7c81f8
 <%@page import="Been.ResultSetToJsonMapper"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="Been.Employee"%>
@@ -18,7 +14,8 @@
     <input type="submit" class="w3-btn w3-black" value="Add"></p>
   </br>
   <div class="w3-container">
-  
+      <div class="w3-responsive">
+  <table class="w3-table-all">
     <thead>
       <tr class="w3-black">
                            <th>ID</th>
@@ -26,7 +23,7 @@
                            <th>EPF No</th>
                            <th>ETF No</th>
                            <th>Title</th>
-                           <th>Name<th>
+                           <th>Name</th>
                            <th>Address</th>
                            <th>Bank</th>
                            <th>Bank Account </th>
@@ -49,8 +46,9 @@ resultSet = employee.getEmployee();
  //System.out.println(resultSet.getInt("id"));
 while(resultSet.next()){
 %>
-
+<tr>
 <td><%=resultSet.getInt("id") %></td>
+<td><%=resultSet.getString("nic") %></td>
 <td><%=resultSet.getString("epfNo") %></td>
 <td><%=resultSet.getString("etfNo") %></td>
 <td><%=resultSet.getString("title") %></td>
@@ -58,7 +56,6 @@ while(resultSet.next()){
 <td><%=resultSet.getString("address") %></td>
 <td><%=resultSet.getString("bank") %></td>
 <td><%=resultSet.getInt("bankAccount") %></td>
-<td><%=resultSet.getInt("contactNo") %></td>
 <td><%=resultSet.getInt("basic") %></td>
 <td><%=resultSet.getString("department") %></td>
 <td><%=resultSet.getInt("manager") %></td>
@@ -67,7 +64,7 @@ while(resultSet.next()){
 <td><%=resultSet.getString("role") %></td>
 <td><%=resultSet.getString("Status") %></td>
 
-
+</tr>
 <%
 }
 
@@ -75,15 +72,14 @@ while(resultSet.next()){
 e.printStackTrace();
 }
 %>
-  
-</div>
+  </table>
+</div></div>
 
   </form>
     
       
 
-<<<<<<< HEAD
 <jsp:include page="WEB-INF/CommenLayouts/Footer.jsp"></jsp:include>
-=======
+
 <jsp:include page="WEB-INF/CommenLayouts/Footer.jsp"></jsp:include>
->>>>>>> 23e89d0f46b4f691be33897a51c91cc3fe7c81f8
+

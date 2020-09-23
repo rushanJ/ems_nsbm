@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> be2a52e9261542e5f27efb51ba8f722ec249a829
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,23 +5,18 @@
  */
 package Servlet;
 
-import Been.Employee;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import org.json.JSONException;
 
 /**
  *
  * @author rusha
  */
-public class AuthServlet extends HttpServlet {
+public class LeaveServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -44,10 +35,10 @@ public class AuthServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AuthServlet</title>");            
+            out.println("<title>Servlet LeaveServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet AuthServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet LeaveServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -79,32 +70,7 @@ public class AuthServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
-        String userName=request.getParameter("userName");
-        String password=request.getParameter("password");
-        Employee employee = new Employee();
-        employee.setEmail(userName);
-        employee.setPassword(password);
-        boolean authStatus;
-        try {
-            authStatus = employee.auth();
-            HttpSession session = request.getSession();
-            session.setAttribute("userName", employee.getUserName());
-            session.setAttribute("userId", employee.getUserName());
-            session.setMaxInactiveInterval(60*60);
-        } catch (JSONException ex) {
-            authStatus =false;
-            Logger.getLogger(AuthServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        if (authStatus){
-           response.sendRedirect("Home.jsp");
-        }
-        else
-        {
-             response.sendRedirect("index.html");
-        }
-        
+        processRequest(request, response);
     }
 
     /**
@@ -115,10 +81,6 @@ public class AuthServlet extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-<<<<<<< HEAD
-    }
-=======
     }// </editor-fold>
 
->>>>>>> be2a52e9261542e5f27efb51ba8f722ec249a829
 }
