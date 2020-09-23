@@ -45,7 +45,7 @@ if(session.getAttribute("userName") == null){
   <div class="w3-sidebar w3-bar-block w3-light-grey w3-card" style="z-index:3;width:300px;">
   <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
   
-  <a href="#" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-home fa-fw"></i>  Home</a>
+  <a href="Home.jsp" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-home fa-fw"></i>  Home</a>
   
   <button class="w3-button w3-bar-item w3-block " onclick="myAccFunc('demoAcc1')"><i class="fa fa-user fa-fw"></i>  Master Data <i class="fa fa-caret-down"></i></button>
   <div id="demoAcc1" class="w3-hide w3-white w3-card">
