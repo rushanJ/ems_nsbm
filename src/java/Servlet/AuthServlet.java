@@ -87,7 +87,7 @@ public class AuthServlet extends HttpServlet {
             authStatus = employee.auth();
             HttpSession session = request.getSession();
             session.setAttribute("userName", employee.getUserName());
-            session.setAttribute("userId", employee.getUserName());
+            session.setAttribute("userId", Integer.toString(employee.getId()));
             session.setMaxInactiveInterval(60*60);
         } catch (JSONException ex) {
             authStatus =false;
