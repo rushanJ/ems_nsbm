@@ -26,7 +26,7 @@
 try{
 ResultSet resultSet = null;
 PaySlip paySlip = new PaySlip();
-resultSet = paySlip.getPaySlipOFEmployies();
+resultSet = paySlip.getPaySlip();
   
  //System.out.println(resultSet.getInt("id"));
 while(resultSet.next()){

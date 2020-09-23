@@ -18,9 +18,6 @@ import org.json.JSONException;
  * @author rusha
  */
 public class PaySlip {
-    
-    private String name;
-
     /**
      * @return the name
      */
@@ -34,3 +31,59 @@ public class PaySlip {
     public void setName(String name) {
         this.name = name;
     }
+public PaySlip(){}
+       Statement st;
+     ResultSet rs= null ;
+    private String name;
+    
+    public boolean newPaySlip() throws JSONException{
+        ConnectToDb();        
+        System.out.println(getName());
+    String query = "INSERT INTO `paySlip` (`id`, `name`) VALUES (NULL, '"+getName()+"');";
+        System.out.println(query);
+    try{
+       System.out.println(" On Process ");
+             st.executeUpdate(query);
+             return true;
+        } catch(SQLException ex){
+           System.out.println(" Error Insertong ");
+//           java.util.logging.Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
+          return false; 
+       }       
+    }
+     public ResultSet getPaySlip() throws JSONException{
+         
+        ConnectToDb();        
+        System.out.println(" Executing query ");
+        String query = "SELECT * FROM `allowance`;";
+         System.out.println(query);
+        try{
+            System.out.println(" On Process ");
+             rs = st.executeQuery(query);
+//             rs.next();
+//             ResultSetToJsonMapper jsonMaper= new ResultSetToJsonMapper();
+//            System.out.println(jsonMaper.mapResultSet(rs));
+        System.out.println(rs);
+             return rs;
+        } catch(SQLException ex){
+            System.out.println(" Error Insertong ");
+           java.util.logging.Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
+            return rs; 
+        }       
+    }
+    public void ConnectToDb() {
+        Config config =new Config();
+        try {
+            System.out.println(" DB 1 ");
+            Class.forName(config.getDriver());
+            Connection con = DriverManager.getConnection(config.getUrl(),config.getUserName(),config.getPassword());
+            System.out.println(" DB connected ");
+          st=con.createStatement();
+        } catch (ClassNotFoundException | SQLException ex) {
+            System.out.println(" DB connection error ");
+            java.util.logging.Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+}
+
+    
