@@ -1,4 +1,7 @@
+<<<<<<< HEAD
+=======
 
+>>>>>>> be2a52e9261542e5f27efb51ba8f722ec249a829
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -112,6 +115,10 @@ public class AuthServlet extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
+<<<<<<< HEAD
+    }
+=======
     }// </editor-fold>
 
+>>>>>>> be2a52e9261542e5f27efb51ba8f722ec249a829
 }
