@@ -6,7 +6,7 @@
      <div class="w3-container">
 <div class="w3-card-4">
   <div class="w3-container w3-black">
-    <h2>New Allowance</h2>
+    <h2>New Employee</h2>
   </div>
   <form class="w3-container w3-card-4 w3-light-grey"  action="EmployeeServlet" method="POST" >
   <p><label>nic</label>

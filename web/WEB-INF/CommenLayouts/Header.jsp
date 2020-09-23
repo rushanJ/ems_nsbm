@@ -28,7 +28,7 @@ if(session.getAttribute("userName") == null){
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
   <div class="w3-container w3-row">
     <div class="w3-col s4">
-      <img src="/w3images/avatar2.png" class="w3-circle w3-margin-right" style="width:46px">
+      <img src="https://www.pngitem.com/pimgs/m/294-2947257_interface-icons-user-avatar-profile-user-avatar-png.png" class="w3-circle w3-margin-right" style="width:46px">
     </div>
     <div class="w3-col s8 w3-bar">
       <span>Welcome, <strong><%=userName %></strong></span><br>
@@ -54,12 +54,15 @@ if(session.getAttribute("userName") == null){
     <a href="Allowance.jsp" class="w3-bar-item w3-button">Allowances</a>
     <a href="Deduction.jsp" class="w3-bar-item w3-button">Deductions</a>
   </div>
+  
+   <a href="dashboardLeave.jsp" class="w3-bar-item w3-button "><i class="fa fa-sign-out fa-fw"></i> Leave</a>
+   
  
-  <button class="w3-button w3-bar-item w3-block " onclick="myAccFunc('demoAcc2')"><i class="fa fa-plane fa-fw"></i>  Leave <i class="fa fa-caret-down"></i></button>
+<!--  <button class="w3-button w3-bar-item w3-block " onclick="myAccFunc('demoAcc2')"><i class="fa fa-plane fa-fw"></i>  Leave <i class="fa fa-caret-down"></i></button>
   <div id="demoAcc2" class="w3-hide w3-white w3-card">
     <a href="AddLeave.jsp" class="w3-bar-item w3-button">New Leave Request</a>
     <a href="PendingRequestLeave.jsp" class="w3-bar-item w3-button">Leave Requests</a>
-  </div>
+  </div>-->
   
   <button class="w3-button w3-bar-item w3-block " onclick="myAccFunc('demoAcc3')"><i class="fa fa-money fa-fw"></i>  Payroll <i class="fa fa-caret-down"></i></button>
   <div id="demoAcc3" class="w3-hide w3-white w3-card">

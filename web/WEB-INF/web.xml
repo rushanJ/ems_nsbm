@@ -24,14 +24,6 @@
         <servlet-name>DepartmentServlet</servlet-name>
         <servlet-class>Servlet.DepartmentServlet</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>PayrollDeductionServlet</servlet-name>
-        <servlet-class>Servlet.PayrollDeductionServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>PayrollLoanServlet</servlet-name>
-        <servlet-class>Servlet.PayrollLoanServlet</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>AuthServlet</servlet-name>
         <url-pattern>/AuthServlet</url-pattern>
@@ -55,14 +47,6 @@
     <servlet-mapping>
         <servlet-name>DepartmentServlet</servlet-name>
         <url-pattern>/DepartmentServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>PayrollDeductionServlet</servlet-name>
-        <url-pattern>/PayrollDeductionServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>PayrollLoanServlet</servlet-name>
-        <url-pattern>/PayrollLoanServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

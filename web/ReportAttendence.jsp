@@ -1,17 +1,14 @@
-<%@page import="Been.Deductions"%>
+
+<%@page import="Been.ResultSetToJsonMapper"%>
 <%@page import="java.sql.ResultSet"%>
+<%@page import="Been.Attendence"%>
 <jsp:include page="WEB-INF/CommenLayouts/Header.jsp"></jsp:include>
      <div class="w3-container">
 <div class="w3-card-4">
   <div class="w3-container w3-black">
-    <h2>Deduction</h2>
+    <h2>Attendence</h2>
   </div>
-  <form class="w3-container w3-card-4 w3-light-grey" action="DeductionServlet" method="POST">
-  <p><label>Add New Deduction</label>
-  <input class="w3-input w3-border" name="name" type="text"></p>
   
-    
-    <button class="w3-btn w3-black">Add</button></p>
   </br>
   <div class="w3-container">
   <table class="w3-table-all w3-hoverable">
@@ -19,20 +16,28 @@
       <tr class="w3-black">
         <th>ID</th>
         <th>Name</th>
+        <th>Date</th>
+        <th>In time</th>
+        <th>Out Time</th>
       </tr>
     </thead>
     <%
 try{
 ResultSet resultSet = null;
-Deductions deduction = new Deductions();
-resultSet = deduction.getDeductions();
+Attendence allowance = new Attendence();
+resultSet = allowance.getAttendence();
   
  //System.out.println(resultSet.getInt("id"));
 while(resultSet.next()){
 %>
 <tr>
 <td><%=resultSet.getInt("id") %></td>
-<td><%=resultSet.getString("name") %></td>
+<td><%=resultSet.getString("employee") %></td>
+<td><%=resultSet.getString("date") %></td>
+<td><%=resultSet.getString("inTiime") %></td>
+<td><%=resultSet.getString("outTime") %></td>
+
+
 </tr>
 <%
 }
@@ -46,4 +51,6 @@ e.printStackTrace();
 
   </form>
     
+      
+
 <jsp:include page="WEB-INF/CommenLayouts/Footer.jsp"></jsp:include>

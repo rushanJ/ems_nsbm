@@ -7,7 +7,7 @@
      <div class="w3-container">
 <div class="w3-card-4">
   <div class="w3-container w3-black">
-    <h2>New Allowance</h2>
+    <h2> Allowance</h2>
   </div>
   <form class="w3-container w3-card-4 w3-light-grey"  action="PayrollAllowancServlet" method="POST" >
   <p><label>Add New Allowance FOR Employee </label>
