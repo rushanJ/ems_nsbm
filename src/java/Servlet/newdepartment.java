@@ -32,31 +32,19 @@ public class newdepartment extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-       Int id;
-        String =nic;
-        String =epfno;
-        String =etfno;
-        String =name;
-        String 
-        String
-                Int
-                        Int
-                        Float
-                                Int 
-                                Int
-                                        String
-                                        String
-                                             
-                
-                        Int
-                        Float
-                                Int 
-                                Int
-                                        Float
-                                       
-                                                Int
+       Department dp =new Department();
+       dp.setDeId(Integer.parseInt(request.getParameter("dpId")));
+       dp.setName(request.getParameter("dpName"));
+       dp.setLocation(request.getParameter("location"));
+       
+               
         
+               
         response.setContentType("text/html;charset=UTF-8");
+        
+    }
+    
+ 
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
