@@ -121,28 +121,28 @@ public class Employee {
     /**
      * @return the bankAccount
      */
-    public int getBankAccount() {
+    public String getBankAccount() {
         return bankAccount;
     }
 
     /**
      * @param bankAccount the bankAccount to set
      */
-    public void setBankAccount(int bankAccount) {
+    public void setBankAccount(String bankAccount) {
         this.bankAccount = bankAccount;
     }
 
     /**
      * @return the contactNo
      */
-    public int getContactNo() {
+    public String getContactNo() {
         return contactNo;
     }
 
     /**
      * @param contactNo the contactNo to set
      */
-    public void setContactNo(int contactNo) {
+    public void setContactNo(String contactNo) {
         this.contactNo = contactNo;
     }
 
@@ -177,42 +177,42 @@ public class Employee {
     /**
      * @return the basic
      */
-    public float getBasic() {
+    public String getBasic() {
         return basic;
     }
 
     /**
      * @param basic the basic to set
      */
-    public void setBasic(float basic) {
+    public void setBasic(String basic) {
         this.basic = basic;
     }
 
     /**
      * @return the department
      */
-    public int getDepartment() {
+    public String getDepartment() {
         return department;
     }
 
     /**
      * @param department the department to set
      */
-    public void setDepartment(int department) {
+    public void setDepartment(String department) {
         this.department = department;
     }
 
     /**
      * @return the manager
      */
-    public int getManager() {
+    public String getManager() {
         return manager;
     }
 
     /**
      * @param manager the manager to set
      */
-    public void setManager(int manager) {
+    public void setManager(String manager) {
         this.manager = manager;
     }
 
@@ -293,13 +293,13 @@ public class Employee {
     private String name;
     private String address;
     private String bank;
-    private int bankAccount;
-    private int contactNo;
+    private String bankAccount;
+    private String contactNo;
     private String gender;
     private String title;
-    private float basic;
-    private int department;
-    private int manager;
+    private String basic;
+    private String department;
+    private String manager;
     private String email;
     private String password;
     private String role;
@@ -311,7 +311,41 @@ public class Employee {
     public Employee(){
         
     }
-    
+    public boolean newEmployee() throws JSONException{
+        ConnectToDb();        
+        System.out.println(name);
+    String query = "INSERT INTO `employee` ( `nic`, `epfNo`, `etfNo`, `name`, `address`, `bank`, `bankAccount`, `contactNo`, `title`, `basic`, `department`, `manager`, `email`, `password`, `role`, `status`) VALUES ('"+nic+"', '"+epfNo+"', '"+etfNo+"', '"+name+"', '"+address+"', '"+bank+"', '"+bankAccount+"', '"+contactNo+"', '"+title+"', '"+basic+"', '"+department+"', '"+manager+"', '"+email+"', '"+password+"', '"+role+"', '"+status+"');";
+        System.out.println(query);
+    try{
+       System.out.println(" On Process ");
+             st.executeUpdate(query);
+             return true;
+        } catch(SQLException ex){
+           System.out.println(" Error Insertong ");
+//           java.util.logging.Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
+          return false; 
+       }       
+    }
+     public ResultSet getEmployee() throws JSONException{
+         
+        ConnectToDb();        
+        System.out.println(" Executing query ");
+        String query = "SELECT * FROM `employee`;";
+         System.out.println(query);
+        try{
+            System.out.println(" On Process ");
+             rs = st.executeQuery(query);
+//             rs.next();
+//             ResultSetToJsonMapper jsonMaper= new ResultSetToJsonMapper();
+//            System.out.println(jsonMaper.mapResultSet(rs));
+        System.out.println(rs);
+             return rs;
+        } catch(SQLException ex){
+            System.out.println(" Error Insertong ");
+           java.util.logging.Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
+            return rs; 
+        }       
+    }
     public boolean auth() throws JSONException{
         ConnectToDb();        
         System.out.println(" Executing query ");
@@ -323,12 +357,9 @@ public class Employee {
              if(rs.next()) {
                  setUserName(rs.getString("name"));
                  setId(rs.getInt("id"));
-                
                }
              ResultSetToJsonMapper jsonMaper= new ResultSetToJsonMapper();
             System.out.println(jsonMaper.mapResultSet(rs));
-            
-            
              return true;
         } catch(SQLException ex){
             System.out.println(" Error Insertong ");

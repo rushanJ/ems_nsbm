@@ -86,7 +86,7 @@ public class DeductionServlet extends HttpServlet {
                 response.sendRedirect("Deduction.jsp");
             }
         } catch (JSONException ex) {
-            Logger.getLogger(DeductionServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AllowanceServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
