@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -115,7 +114,7 @@ public class AuthServlet extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-=======
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -232,5 +231,4 @@ public class AuthServlet extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
->>>>>>> af251587573a4389a19f57f8b9d9fe5b7794c233
 }
